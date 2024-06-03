@@ -5,29 +5,23 @@ public class Calculadora {
     public double calcular(Operacoes operacao) {
         validarEntrada(operacao);
 
-        switch (Operacoes.operacao) {
+        switch (operacao.getOperador()) {
             case '+':
-                return soma(operacao.valorA, operacao.valorB);
+                return soma(operacao.getValorA(), operacao.getValorB());
             case '-':
-                return subtracao(operacao.valorA, operacao.valorB);
+                return subtracao(operacao.getValorA(), operacao.getValorB());
             case '*':
-                return multiplicacao(operacao.valorA, operacao.valorB);
-                case '/':
-                return divisao(operacao.valorA, operacao.valorB);
+                return multiplicacao(operacao.getValorA(), operacao.getValorB());
+            case '/':
+                return divisao(operacao.getValorA(), operacao.getValorB());
             default:
-                throw new IllegalArgumentException("Operador inválido: " + operacao.operador);
-
-
+                throw new IllegalArgumentException("Operador inválido: " + operacao.getOperador());
         }
     }
-
-
-
-
     
     private void validarEntrada(Operacoes operacao) {
-        if (!isNumero(operacao.valorA) || !isNumero(operacao.valorB)) {
-            throw new InputMismatchException("Valores inválidos: " + operacao.valorA + " e " + operacao.valorB);
+        if (!isNumero(operacao.getValorA()) || !isNumero(operacao.getValorB())) {
+            throw new InputMismatchException("Valores inválidos: " + operacao.getValorA() + " e " + operacao.getValorB());
         }
     }
 
