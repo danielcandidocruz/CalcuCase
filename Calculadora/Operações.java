@@ -1,25 +1,17 @@
-
 public class Operacoes {
 
     private int valorA;
     private char operador;
     private int valorB;
-    private int resultado;
+    private double resultado;
 
-
-
-    public Operacoes( int valorA; int valorB; char operador; double resultado) {
-
+    public Operacoes( int valorA, int valorB, char operador) {
         this.valorA = valorA;
         this.valorB = valorB;
         this.operador = operador;
-    
     }
     
-
-
-
-        public int getValorA() {
+    public int getValorA() {
         return valorA;
     }
 
@@ -45,11 +37,18 @@ public class Operacoes {
         this.valorB = valorB;
     }
 
-    public int getResultado() {
+    public double getResultado(){
         return resultado;
     }
 
-    public void setResultado(int resultado) {
+    public void setResultado(double resultado){
         this.resultado = resultado;
+    }
+
+    @Override
+    public String toString(){
+        return "Valor A: " + valorA + "\n"
+            + "Valor B: " + valorB + "\n"
+            + "Operacao: " + operador + "\n";
     }
 }
